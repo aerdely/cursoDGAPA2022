@@ -3,24 +3,24 @@
 
 ## Modos de la terminal REPL (Repeat-Execute-Print-Loop)
 
-? # modo: ayuda
+# Notación: teclas [Ctrl] [Tab] [Alt] [L]
+# Combinación de teclas, por ejemplo presionar simultáneamente: [Ctrl] + [L]
+# julia>  cursor de la terminal de Julia
 
-] # modo: instalar paquetes
-
-# se sale de ellos con la tecla backspace [<-]
-
-# limpiar pantalla: [Ctrl] + [L]
+# [Alt] + [intro] para entrar/salir modo de pantalla completa
 
 
 ## Ejecución de instrucciones
 
-2 + 3
+versioninfo()
+
+2+3
 
 "¡Hola mundo!"
 
 varinfo() # objetos definidos en el actual entorno global
 
-4 - 7
+4-7
 
 ans # último resultado: `ans` por answer
 
@@ -28,35 +28,61 @@ a = 2^3
 
 a
 
+# Con [flecha-arriba] y [flecha-abajo] podemos regresar/adelantar
+# en código previamente escrito
+
 varinfo()
 
 a = nothing
 
+varinfo()
 
-## Instalar paquetes
+# [Ctrl] + [L] limpia la pantalla
 
-] # entrar a modo instalar paquetes
+varinfo()
+
+
+## Modo ayuda
+
+? # cambiar a modo ayuda
+  # luego escribir nombre de comando, por ejemplo:
+varinfo
+
+# se puede utilizar autocompletar, por ejemplo: vari [Tab]
+
+# si hay más de un posibilidad, por ejemplo: ? su [Tab] [Tab]
+
+# salir del modo ayuda: tecla backspace [<-]
+
+# Autocompletar en la terminal de Julia también
+
+
+## Instalar y usar paquetes
+
+] # entrar al modo instalar paquetes
+
+# ? [intro] para ayuda
 
 status # ver paquetes instalados
 
-add OhMyREPL 
+add OhMyREPL # instalar paquete `OhMyREPL`
 
-status # verifcar que se instaló
+status # verificar que se instaló
 
-# tecla basckspace [<-] para salir del modo instalar paquetes
+# salir del modo instalar paquetes: tecla basckspace [<-]
 
-using OhMyREPL # utilizar el paquetes
+using OhMyREPL # utilizar el paquete
 
 b = 2 + 3
 
 varinfo()
 
-print("valor de b = ", b)
+print("valor de a = ", a)
 
 println("valor de b = ", b)
 
 
-## Instrucciones en entorno global
+## Entornos global y local
 
 varinfo()
 
@@ -68,9 +94,6 @@ end
 
 varinfo() # se agregaron objetos al entorno global que ocupan memoria
 
-
-## Instrucciones en entorno local
-
 let 
     e = 7
     f = 8
@@ -78,6 +101,20 @@ let
 end
 
 varinfo() # NO se agregaron objetos al entorno global
+
+
+## Editar código multilínea
+
+# Con [flecha-arriba] y [flecha-abajo] podemos regresar/adelantar
+# en código previamente escrito, y para insertar líneas [Esc] + [Intro]
+
+let
+    println("Comenzamos...") 
+    e = 7
+    f = 8
+    println(e + f)
+    println("Terminado.")
+end
 
 
 ## Directorio de trabajo
@@ -96,9 +133,11 @@ pwd()
 
 readdir()
 
+readdir(join = true)
+
 
 ## Ejecución de código desde un archivo
 
 include("002_repl.jl")
 
-2 + 3
+exit() # cerrar terminal de Julia, o bien [Ctrl] + [D]

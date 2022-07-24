@@ -1,18 +1,16 @@
 ### Ejemplos de entorno local y global
 
-using OhMyREPL, Dates 
+using Dates 
 
-# nota: el paquete `OhMyREPL` requiere instalación previa,
-#       pero el paquete `Dates` no porque es parte de la 
-#       biblioteca estándar de Julia.
+# nota: el paquete `Dates` no requiere instalación previa
+#       porque es parte de la biblioteca estándar de Julia.
 
 
-println(now())
+println(now(), "\n")
 
-println("Probabilidad y Estadística con Julia")
+println("Probabilidad y Estadística con Julia \n")
 
 println(varinfo())
-
 
 # entorno local
 let
@@ -21,7 +19,6 @@ let
    println("e = ", e, ", f = ", f, " =>  e + f = ", e + f) 
 end
 
-
 # entorno global
 begin
     g = 30
@@ -29,5 +26,4 @@ begin
     println("g = ", g, ", h = ", h, " =>  g + h = ", g + h) 
 end
 
-
-println(varinfo())
+display(varinfo())
