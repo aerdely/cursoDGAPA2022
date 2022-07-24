@@ -7,8 +7,6 @@
 
 ] # modo: instalar paquetes
 
-; # modo: sistema operativo
-
 # se sale de ellos con la tecla backspace [<-]
 
 # limpiar pantalla: [Ctrl] + [L]
