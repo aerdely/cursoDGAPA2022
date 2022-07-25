@@ -41,6 +41,13 @@ varinfo()
 
 varinfo()
 
+# asignación sin mostrar valor en terminal
+
+y = 4 + 9
+y
+z = 4 - 9;
+z
+
 
 ## Modo ayuda
 
