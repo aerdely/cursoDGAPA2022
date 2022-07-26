@@ -1,14 +1,14 @@
 ### Funciones
 
-f(x,y) = x + y
+f(x,y) = x + y + x*y 
 f(2,3)
 
 function g(x,y)
-    x + y
+    x + y + x*y
 end
 g(3,4)
 
-h = (x,y) -> x+y
+h = (x,y) -> x + y + 1
 h(4,5)
 
 
