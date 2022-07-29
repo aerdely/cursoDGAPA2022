@@ -13,6 +13,7 @@ using Plots # tarda unos segundos en cargar, es un paquete grande
 
 @time plot([5, 1, 4, 2, 3]) # segunda vez en adelante
 
+# JIT = Just in Time compilation
 
 ## Funciones de una variable
 
@@ -41,10 +42,10 @@ begin
 end
 
 begin
-    plot(x, y, lw = 3, color = :orange, label = "seno")
+    plot(x, y, lw = 3, color = :orange, label = "seno", xtickfontsize = 4)
     xaxis!("ángulo en radianes")
     yaxis!("seno y coseno")
-    title!("Funciones trigonométricas")
+    title!("Funciones trigonométricas", titlefontsize = 8)
     plot!(x, z, lw = 3, color = :brown, label = "coseno")
 end
 
@@ -125,7 +126,7 @@ begin
     p2 = scatter(θ, x .+ 0.1*ε, legend = false, markersize = 1)
     p3 = scatter(θ, x .+ ε, legend = false, markersize = 2)
     p4 = scatter(θ, x .+ 2*ε, legend = false, markersize = 3)
-    plot(p1, p2, p3, p4, legend = false, layout = (2, 2))
+    plot(p1, p2, p3, p4, layout = (2, 2))
 end 
 
 
@@ -214,3 +215,9 @@ end
 ## Más detalles y opciones con Plots:
 
 #  https://docs.juliaplots.org/stable/ 
+
+# otros paquetes: Gadfly.jl (estilo ggplot2 de R)
+
+# otro prometedor: Makie.jl
+
+

@@ -32,7 +32,7 @@ r == s
 ## Muestreo probabilístico con reemplazo
 
 # generar tabla de frecuencias absolutas y relativas de la colección x
-function conteo(x::Vector) 
+function conteo(x) 
     valor = unique(x) # valores distintos de x
     try 
         sort!(valor) # intenta ordenar valores
@@ -60,7 +60,7 @@ end
 
 # Ejemplo
 enteros = collect(1:10)
-r = rand(enteros, 10_000)
+r = rand(enteros, 10_000) # muestra con reemplazo
 c = conteo(r)
 c.cols
 c.tabla
