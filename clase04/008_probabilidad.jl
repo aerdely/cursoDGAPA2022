@@ -138,7 +138,7 @@ sinreemplazo(collect('A':'Z'), 100) # error porque m > length(A)
 #  randn: Normal(0,1)
 
 media(x) = sum(x) / length(x)
-varianza(x) = sum((x .- media(x)) .^ 2) ./ (length(x) - 1)
+varianza(x) = sum((x .- media(x)) .^ 2) / (length(x) - 1)
 
 U = rand(10_000) # Uniforme[0,1[
 minimum(U) # muy cercano a 0.0 por la derecha
@@ -224,8 +224,8 @@ kurtosis(X)
 X
 pdf(X, -3.0)
 pdf.(X, [-3.1, -3.0, -2.9])
-x = collect(-23.0:0.01:17.0)
 begin
+    x = collect(-23.0:0.01:17.0)
     plot(x, pdf.(X, x), legend = false, lw = 3)
     xaxis!("x"); yaxis!("densidad  f(x)")
     title!("Normal (μ = $(X.μ), σ = $(X.σ))")
@@ -245,6 +245,7 @@ end
 
 # Ajuste de un modelo con base en datos (máxima verosimilitud)
 G = Gamma(2, 3)
+mean(G)
 rG = rand(G, 10_000)
 ajusteG = fit(Gamma, rG)
 typeof(ajusteG)
@@ -313,3 +314,7 @@ end
 
 ## catálogo de modelos multivariados
 #  https://juliastats.org/Distributions.jl/stable/multivariate/#Distributions 
+
+
+## distribuciones de valores extremos: paquete Extremes.jl
+#  https://jojal5.github.io/Extremes.jl/dev/ 
