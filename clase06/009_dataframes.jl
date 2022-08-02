@@ -91,7 +91,7 @@ df
 ## Agregar registros (filas)
 #  push!  append!
 
-push!(df, ["Ema", 'F', 20, 71, 1.81, false]) # agregar un solo registro
+push!(df, ["Ema", 'M', 20, 71, 1.81, false]) # agregar un solo registro
 df
 append!(df, df[1:2, :]) # agregar varios registros (mediante otro dataframe)
 
@@ -99,7 +99,7 @@ append!(df, df[1:2, :]) # agregar varios registros (mediante otro dataframe)
 ## Eliminar columnas
 #  select  select!
 
-df2 = df
+df2 = copy(df)
 select(df2, Not([:Sexo, :Covid]))
 df2
 select!(df2, Not([:Sexo, :Covid]))
@@ -215,6 +215,8 @@ df
 mapcols(x -> x .^ 2, df)
 df
 df2 = copy(df)
+df2.Peso = df2.Peso .^ 2
+df2
 mapcols!(x -> x .^ 2, df2)
 df2 
 
