@@ -1,4 +1,4 @@
-### Ejercicio 2
+### Tarea 1  
 
 # Escribir código en Julia que facilite trabajar con la distribución de
 # probabilidad Kumaraswamy y que NO tenga dependencia con paquete alguno.
