@@ -38,7 +38,8 @@ funcioncita(2, 3)
 ```
 """
 function funcioncita(a, b)
-    return a + b + 1
+    # Vamos a empezar...
+    return a + b + 1 # este es el resultado
 end
 
 # Y luego consultarla en el modo ayuda `?` 
@@ -108,7 +109,7 @@ function Kumaraswamy(a, b)
         else
             moda = NaN
         end
-        momento(k) = b * beta(1 + k/a, b)
+        momento(k) = b * beta(1 + k/a, b) # `beta` función del paquete `SpecialFunctions`
         esperanza = momento(1)
         varianza = momento(2) - esperanza^2
         return (va = "Kumaraswamy(a = $a, b = $b)",
@@ -129,6 +130,7 @@ X = Kumaraswamy(-1,2) # Error
 X
 
 X = Kumaraswamy(2, 9)
+typeof(X)
 keys(X)
 X.va
 X[:va]

@@ -139,6 +139,7 @@ M
 
 D = [0.9, 0.25, 0.25, 0.6, 0.6, 0.6, 0.3, 0.3, 0.3, 0.3]
 c = countmap(D)
+typeof(c)
 p = proportionmap(D)
 keys(c), values(c), values(p)
 
@@ -184,6 +185,7 @@ hcat(D, dr)
 # corspearman  corkendall
 X = rand(1_000)
 Y = X .^ 10
+scatter(X, Y, legend = false, xlabel = "X", ylabel = "Y")
 (corspearman(X, Y), corkendall(X, Y), cor(X, Y))
 (corspearman(log.(X), log.(Y)), corkendall(log.(X), log.(Y)), cor(log.(X), log.(Y)))
 corspearman(rand(10, 2))
