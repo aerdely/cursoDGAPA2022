@@ -53,3 +53,22 @@ begin
     logV(p) = -sum(log.(dnorm.(rX, p[1], p[2])))
     EDA(logV, [-10, 0], [10, 10])
 end
+
+(mean(rX), std(rX)) # solución explícita para maximizar la verosimilitud
+
+
+# Ejemplo 5: Estimación por máxima verosimilitud
+
+begin
+    Y = Gamma(2, 3)
+    rY = rand(Y, 1_000)
+    dgamma(y, α, β) = pdf(Gamma(max(α, 0.00001), max(β, 0.00001)), y)
+    logV(p) = -sum(log.(dgamma.(rY, p[1], p[2])))
+    EDA(logV, [0.0001, 0.0001], [10, 10])
+end
+
+μ, σ2 = mean(rY), var(rY)
+# solución explícita por método de momentos:
+α = μ^2 / σ2
+β = μ / α
+# no hay solución explícita por máxima verosimilitud
