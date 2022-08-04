@@ -22,14 +22,13 @@ end
 ## Ejemplo 2: mín g(x) = -x*(x ≤ 0) + (x + 1)*(x > 0)
 
 begin # gráfica
+    g(x) = -x[1]*(x[1] ≤ 0) + (x[1] + 1)*(x[1] > 0)
     x = collect(range(-1, 1, length = 1_000))
     scatter(x, g.(x), markersize = 1.0, legend = false, xlabel = L"x", ylabel = L"g(x)")
 end
+    
+sol = EDA(g, [-1], [1])
 
-begin
-    g(x) = -x[1]*(x[1] ≤ 0) + (x[1] + 1)*(x[1] > 0)
-    sol = EDA(g, [-1], [1])
-end
 
 
 # Ejemplo 3: mín f(x,y) = |x - 5| + |y + 2|
@@ -45,7 +44,7 @@ sol = EDA(f, [-10, -10], [10, 10], iEnteros = [1, 2]) # solo valores enteros
 # Ejemplo 4: Estimación por máxima verosimilitud
 
 begin
-    X = Normal(-2, 5)
+    X = Normal(-2, 5) 
     rX = rand(X, 1_000)
     dnorm(x, μ, σ) = pdf(Normal(μ, max(σ, 0.00001)), x)
     logV(p) = -sum(log.(dnorm.(rX, p[1], p[2])))
