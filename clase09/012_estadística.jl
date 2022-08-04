@@ -4,8 +4,6 @@ using Distributions, Plots, LaTeXStrings
 
 include("EDA.jl")
 
-@doc EDA
-
 
 # Ejemplo 1: mín f(x) = (x - 5)⁴ - 16(x - 5)² + 5(x - 5) + 120
 
